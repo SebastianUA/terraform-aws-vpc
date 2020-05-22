@@ -2,6 +2,8 @@
 
 A terraform module for making AWS Virtual Private Cloud.
 
+*NOTE*: Full list of Terraform modules that I have are located here: [https://github.com/SebastianUA/terraform](https://github.com/SebastianUA/terraform)
+
 
 ## Usage
 ----------------------
