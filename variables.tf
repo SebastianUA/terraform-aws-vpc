@@ -2,8 +2,8 @@
 # Global or/and default variables
 #---------------------------------------------------------------
 variable "name" {
-    description = "Name to be used on all resources as prefix"
-    default     = "TEST"
+  description = "Name to be used on all resources as prefix"
+  default     = "TEST"
 }
 
 variable "region" {
@@ -12,190 +12,185 @@ variable "region" {
 }
 
 variable "environment" {
-    description = "Environment for service"
-    default     = "STAGE"
+  description = "Environment for service"
+  default     = "STAGE"
 }
 
 variable "tags" {
-    description = "A list of tag blocks. Each element should have keys named key, value, etc."
-    type        = map(string)
-    default     = {}
+  description = "A list of tag blocks. Each element should have keys named key, value, etc."
+  type        = map(string)
+  default     = {}
 }
 
 #---------------------------------------------------------------
 # AWS VPC
 #---------------------------------------------------------------
 variable "enable_vpc" {
-    description   = "Enable VPC usage"
-    default       = false
+  description = "Enable VPC usage"
+  default     = false
 }
 
 variable "vpc_name" {
-  description   = "name for VPC"
-  default       = ""
+  description = "name for VPC"
+  default     = ""
 }
 
 variable "vpc_cidr" {
-    description = "(Required) The CIDR block for the VPC."
-    default     = ""
+  description = "(Required) The CIDR block for the VPC."
+  default     = ""
 }
 
 variable "instance_tenancy" {
-    description = "(Optional) A tenancy option for instances launched into the VPC"
-    default     = "default"
+  description = "(Optional) A tenancy option for instances launched into the VPC"
+  default     = "default"
 }
 
 variable "enable_dns_support" {
-    description = "(Optional) A boolean flag to enable/disable DNS support in the VPC. Defaults true."
-    default     = true
+  description = "(Optional) A boolean flag to enable/disable DNS support in the VPC. Defaults true."
+  default     = true
 }
 
 variable "enable_dns_hostnames" {
-    description = "(Optional) A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false."
-    default     = false
+  description = "(Optional) A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false."
+  default     = false
 }
 
 variable "enable_classiclink" {
-    description = "(Optional) A boolean flag to enable/disable ClassicLink for the VPC. Only valid in regions and accounts that support EC2 Classic. See the ClassicLink documentation for more information. Defaults false. Dedicated tenancy VPCs cannot be enabled for ClassicLink by default"
-    default     = false
+  description = "(Optional) A boolean flag to enable/disable ClassicLink for the VPC. Only valid in regions and accounts that support EC2 Classic. See the ClassicLink documentation for more information. Defaults false. Dedicated tenancy VPCs cannot be enabled for ClassicLink by default"
+  default     = false
 }
 
 variable "enable_classiclink_dns_support" {
-  description   = "(Optional) A boolean flag to enable/disable ClassicLink DNS Support for the VPC. Only valid in regions and accounts that support EC2 Classic."
-  default       = true
+  description = "(Optional) A boolean flag to enable/disable ClassicLink DNS Support for the VPC. Only valid in regions and accounts that support EC2 Classic."
+  default     = true
 }
 
 variable "assign_generated_ipv6_cidr_block" {
-    description = "(Optional) Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is false."
-    default     = false
+  description = "(Optional) Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is false."
+  default     = false
 }
 
 #---------------------------------------------------------------
 # AWS subnets
 #---------------------------------------------------------------
 variable "private_subnet_cidrs" {
-    description = "CIDR for the Private Subnet"
-    default     = []
+  description = "CIDR for the Private Subnet"
+  default     = []
 }
 
 variable "vpc_id" {
-  description   = "The VPC ID."
-  default       = ""
+  description = "The VPC ID."
+  default     = ""
 }
 
 variable "azs" {
-    description = "A list of Availability zones in the region"
-    default     = []
+  description = "A list of Availability zones in the region"
+  default     = []
 }
 
 variable "availability_zones" {
-    description = "A list of Availability zones in the region"
-    default     = {
-        us-east-1      = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e", "us-east-1f"]
-        us-east-2      = ["us-east-2a", "eu-east-2b", "eu-east-2c"]
-        us-west-1      = ["us-west-1a", "us-west-1c"]
-        us-west-2      = ["us-west-2a", "us-west-2b", "us-west-2c"]
-        ca-central-1   = ["ca-central-1a", "ca-central-1b"]
-        eu-west-1      = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
-        eu-west-2      = ["eu-west-2a", "eu-west-2b"]
-        eu-central-1   = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
-        ap-south-1     = ["ap-south-1a", "ap-south-1b"]
-        sa-east-1      = ["sa-east-1a", "sa-east-1c"]
-        ap-northeast-1 = ["ap-northeast-1a", "ap-northeast-1c"]
-        ap-southeast-1 = ["ap-southeast-1a", "ap-southeast-1b"]
-        ap-southeast-2 = ["ap-southeast-2a", "ap-southeast-2b", "ap-southeast-2c"]
-        ap-northeast-1 = ["ap-northeast-1a", "ap-northeast-1c"]
-        ap-northeast-2 = ["ap-northeast-2a", "ap-northeast-2c"]
-    }
+  description = "A list of Availability zones in the region"
+  default = {
+    us-east-1      = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e", "us-east-1f"]
+    us-east-2      = ["us-east-2a", "eu-east-2b", "eu-east-2c"]
+    us-west-1      = ["us-west-1a", "us-west-1c"]
+    us-west-2      = ["us-west-2a", "us-west-2b", "us-west-2c"]
+    ca-central-1   = ["ca-central-1a", "ca-central-1b"]
+    eu-west-1      = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+    eu-west-2      = ["eu-west-2a", "eu-west-2b"]
+    eu-central-1   = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
+    ap-south-1     = ["ap-south-1a", "ap-south-1b"]
+    sa-east-1      = ["sa-east-1a", "sa-east-1c"]
+    ap-northeast-1 = ["ap-northeast-1a", "ap-northeast-1c"]
+    ap-southeast-1 = ["ap-southeast-1a", "ap-southeast-1b"]
+    ap-southeast-2 = ["ap-southeast-2a", "ap-southeast-2b", "ap-southeast-2c"]
+    ap-northeast-1 = ["ap-northeast-1a", "ap-northeast-1c"]
+    ap-northeast-2 = ["ap-northeast-2a", "ap-northeast-2c"]
+  }
 }
 
 variable "availability_zone_id" {
-  description   = "(Optional) The AZ ID of the subnet."
-  default       = null
+  description = "(Optional) The AZ ID of the subnet."
+  default     = null
 }
 
 variable "private_subnet_ipv6_cidrs" {
-  description   = "(Optional) The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length."
-  default       = null
+  description = "(Optional) The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length."
+  default     = null
 }
 
 variable "private_subnets_name" {
-  description   = "Name for private subnets"
-  default       = ""
+  description = "Name for private subnets"
+  default     = ""
 }
 
 variable "assign_ipv6_address_on_creation" {
-  description   = "(Optional) Specify true to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. Default is false"
-  default       = false
+  description = "(Optional) Specify true to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. Default is false"
+  default     = false
 }
 
 variable "public_subnet_cidrs" {
-    description = "CIDR for the Public Subnet"
-    default     = []
+  description = "CIDR for the Public Subnet"
+  default     = []
 }
 
 variable "map_public_ip_on_launch" {
-    description = "should be false if you do not want to auto-assign public IP on launch"
-    default     = true
+  description = "should be false if you do not want to auto-assign public IP on launch"
+  default     = true
 }
 
 variable "public_subnet_ipv6_cidrs" {
-  description   = "(Optional) The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length."
-  default       = null
+  description = "(Optional) The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length."
+  default     = null
 }
 
 variable "public_subnets_name" {
-  description   = "Name for private subnets"
-  default       = ""
+  description = "Name for private subnets"
+  default     = ""
 }
 
-variable "subnet_timeouts_create" {
-  description   = "(Default 10m) How long to wait for a subnet to be created."
-  default       = "10m"
-}
-
-variable "subnet_timeouts_delete" {
-  description   = "(Default 20m) How long to retry on DependencyViolation errors during subnet deletion from lingering ENIs left by certain AWS services such as Elastic Load Balancing. NOTE: Lambda ENIs can take up to 45 minutes to delete, which is not affected by changing this customizable timeout (in version 2.31.0 and later of the Terraform AWS Provider) unless it is increased above 45 minutes."
-  default       = "20m"
+variable "subnet_timeouts" {
+  description = "Set to how long to wait for a subnet to be created or deleted."
+  default     = []
 }
 
 #---------------------------------------------------------------
 # AWS VPN gateway
 #---------------------------------------------------------------
 variable "enable_vpn_gateway" {
-    description = "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC"
-    default     = false
+  description = "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC"
+  default     = false
 }
 
 variable "vpn_gw_availability_zone" {
-  description   = "(Optional) The Availability Zone for the virtual private gateway."
-  default       = null
+  description = "(Optional) The Availability Zone for the virtual private gateway."
+  default     = null
 }
 
 variable "vpn_gw_amazon_side_asn" {
-  description   = "(Optional) The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN."
-  default       = null
+  description = "(Optional) The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN."
+  default     = null
 }
 
 variable "vpn_gw_name" {
-  description   = "Set name for VPC GW"
-  default       = ""
+  description = "Set name for VPC GW"
+  default     = ""
 }
 
 #---------------------------------------------------------------
 # AWS VPN gateway attachment
 #---------------------------------------------------------------
 variable "vpn_gw_attachment_vpn_gateway_id" {
-  description   = "The ID of the Virtual Private Gateway."
-  default       = ""
+  description = "The ID of the Virtual Private Gateway."
+  default     = ""
 }
 
 #---------------------------------------------------------------
 # AWS VPN gateway route propagation
 #---------------------------------------------------------------
 variable "vpn_gw_route_propagation_route_table_id" {
-  description   = "The id of the aws_route_table to propagate routes into."
-  default       = ""
+  description = "The id of the aws_route_table to propagate routes into."
+  default     = ""
 }
 
 #---------------------------------------------------
@@ -296,8 +291,8 @@ variable "enable_dhcp" {
 }
 
 variable "vpc_dhcp_name" {
-  description   = "Set name for VPC DHCP"
-  default       = ""
+  description = "Set name for VPC DHCP"
+  default     = ""
 }
 
 variable "dhcp_options_domain_name" {
@@ -329,16 +324,16 @@ variable "dhcp_options_netbios_node_type" {
 # DHCP Options Set Association
 #---------------------------------------------------------------
 variable "dhcp_options_id" {
-  description   = "The ID of the DHCP Options Set to associate to the VPC."
-  default       = ""
+  description = "The ID of the DHCP Options Set to associate to the VPC."
+  default     = ""
 }
 
 #---------------------------------------------------------------
 # Add AWS internet gateway
 #---------------------------------------------------------------
 variable "enable_internet_gateway" {
-    description = "Allow Internet GateWay to/from public network"
-    default     = false
+  description = "Allow Internet GateWay to/from public network"
+  default     = false
 }
 
 #variable "internet_gw_vpc_id" {
@@ -347,59 +342,59 @@ variable "enable_internet_gateway" {
 #}
 
 variable "internet_gw_name" {
-  description   = "Name for internet gw"
-  default       = ""
+  description = "Name for internet gw"
+  default     = ""
 }
 
 #---------------------------------------------------
 # Create NAT
 #---------------------------------------------------
 variable "enable_nat_gateway" {
-    description = "Allow Nat GateWay to/from private network"
-    default     = false
+  description = "Allow Nat GateWay to/from private network"
+  default     = false
 }
 
 variable "single_nat_gateway" {
-    description = "should be true if you want to provision a single shared NAT Gateway across all of your private networks"
-    default     = false
+  description = "should be true if you want to provision a single shared NAT Gateway across all of your private networks"
+  default     = false
 }
 
 #---------------------------------------------------------------
 # AWS EIP
 #---------------------------------------------------------------
 variable "enable_eip" {
-    description = "Allow creation elastic eip"
-    default     = false
+  description = "Allow creation elastic eip"
+  default     = false
 }
 
 variable "nat_eip_vpc" {
-  description   = "(Optional) Boolean if the EIP is in a VPC or not."
-  default       = true
+  description = "(Optional) Boolean if the EIP is in a VPC or not."
+  default     = true
 }
 
 variable "nat_eip_instance" {
-  description   = "(Optional) EC2 instance ID."
-  default       = null
+  description = "(Optional) EC2 instance ID."
+  default     = null
 }
 
 variable "nat_eip_network_interface" {
-  description   = "(Optional) Network interface ID to associate with."
-  default       = null
+  description = "(Optional) Network interface ID to associate with."
+  default     = null
 }
 
 variable "nat_eip_associate_with_private_ip" {
-  description   = "(Optional) A user specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address."
-  default       = null
+  description = "(Optional) A user specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address."
+  default     = null
 }
 
 variable "nat_eip_public_ipv4_pool" {
-  description   = "(Optional) EC2 IPv4 address pool identifier or amazon. This option is only available for VPC EIPs."
-  default       = null
+  description = "(Optional) EC2 IPv4 address pool identifier or amazon. This option is only available for VPC EIPs."
+  default     = null
 }
 
 variable "nat_eip_name" {
-  description   = "Set name for NAT EIP"
-  default       = ""
+  description = "Set name for NAT EIP"
+  default     = ""
 }
 
 #---------------------------------------------------------------
@@ -425,37 +420,127 @@ variable "public_custom_gateway_id" {
   default     = null
 }
 
-variable "timeouts_create" {
-  description   = "(Default 2 minutes) Used for route creation"
-  default       = "2m"
+variable "route_timeouts" {
+  description = "Set timeouts for route"
+  default     = []
 }
 
-variable "timeouts_delete" {
-  description   = "(Default 5 minutes) Used for route deletion"
-  default       = "5m"
+variable "enable_custom_route" {
+  description = "Enable custom route"
+  default     = false
+}
+
+variable "custom_route_route_table_id" {
+  description = "(Required) The ID of the routing table."
+  default     = null
+}
+
+variable "custom_route_destination_cidr_block" {
+  description = "(Optional) The destination CIDR block."
+  default     = null
+}
+
+variable "custom_route_destination_ipv6_cidr_block" {
+  description = "(Optional) The destination IPv6 CIDR block."
+  default     = null
+}
+
+variable "custom_route_vpc_peering_connection_id" {
+  description = "(Optional) Identifier of a VPC peering connection."
+  default     = null
+}
+
+variable "custom_route_egress_only_gateway_id" {
+  description = "(Optional) Identifier of a VPC Egress Only Internet Gateway."
+  default     = null
+}
+
+variable "custom_route_gateway_id" {
+  description = "(Optional) Identifier of a VPC internet gateway or a virtual private gateway."
+  default     = null
+}
+
+variable "custom_route_instance_id" {
+  description = "(Optional) Identifier of an EC2 instance."
+  default     = null
+}
+
+variable "custom_route_nat_gateway_id" {
+  description = "(Optional) Identifier of a VPC NAT gateway."
+  default     = null
+}
+
+variable "custom_route_local_gateway_id" {
+  description = "(Optional) Identifier of a Outpost local gateway."
+  default     = null
+}
+
+variable "custom_route_network_interface_id" {
+  description = "(Optional) Identifier of an EC2 network interface."
+  default     = null
+}
+
+variable "custom_route_transit_gateway_id" {
+  description = "(Optional) Identifier of an EC2 Transit Gateway."
+  default     = null
+}
+
+variable "custom_route_vpc_endpoint_id" {
+  description = "(Optional) Identifier of a VPC Endpoint."
+  default     = null
 }
 
 #---------------------------------------------------------------
 # AWS route table
 #---------------------------------------------------------------
 variable "private_propagating_vgws" {
-    description = "A list of VGWs the private route table should propagate."
-    default     = []
+  description = "A list of VGWs the private route table should propagate."
+  default     = []
 }
 
 variable "private_route_tables_name" {
-  description   = "Set name for private route tables"
-  default       = ""
+  description = "Set name for private route tables"
+  default     = ""
 }
 
 variable "public_propagating_vgws" {
-    description = "A list of VGWs the public route table should propagate."
-    default     = []
+  description = "A list of VGWs the public route table should propagate."
+  default     = []
 }
 
 variable "public_route_tables_name" {
-  description   = "Set name for public route tables"
-  default       = ""
+  description = "Set name for public route tables"
+  default     = ""
+}
+
+variable "enable_custom_route_table" {
+  description = "Enable custom RT"
+  default     = false
+}
+
+variable "custom_route_table_name" {
+  description = "Set name for custom RT"
+  default     = ""
+}
+
+variable "custom_route_table_vpc_id" {
+  description = "The VPC ID."
+  default     = ""
+}
+
+variable "custom_route_table_public_propagating_vgws" {
+  description = "(Optional) A list of virtual gateways for propagation."
+  default     = null
+}
+
+variable "custom_route_table_route_ipv4" {
+  description = "The CIDR block of the route for IPv4."
+  default     = []
+}
+
+variable "custom_route_table_route_ipv6" {
+  description = "(Optional) The Ipv6 CIDR block of the route."
+  default     = []
 }
 
 #---------------------------------------------------
@@ -615,14 +700,9 @@ variable "vpc_ipv4_cidr_block_association_cidr_block" {
   default     = ""
 }
 
-variable "vpc_ipv4_cidr_block_association_timeouts_create" {
-  description = "(Default 10 minutes) Used for creating the association"
-  default     = "10m"
-}
-
-variable "vpc_ipv4_cidr_block_association_timeouts_delete" {
-  description = "(Default 10 minutes) Used for destroying the association"
-  default     = "10m"
+variable "vpc_ipv4_cidr_block_association_timeouts" {
+  description = "Set timeouts used for creating the association"
+  default     = []
 }
 
 #---------------------------------------------------
@@ -650,13 +730,13 @@ variable "main_route_table_association_route_table_id" {
 # AWS VPC peering connection
 #---------------------------------------------------
 variable "enable_vpc_peering" {
-  description   = "Enable VPC peering usage"
-  default       = false
+  description = "Enable VPC peering usage"
+  default     = false
 }
 
 variable "vpc_peering_connection_name" {
-  description   = "Set name for VPC peering connection"
-  default       = ""
+  description = "Set name for VPC peering connection"
+  default     = ""
 }
 
 variable "peering_destination_cidr_block" {
@@ -670,124 +750,74 @@ variable "peering_gateway_id" {
 }
 
 variable "vpc_peering_connection_peer_vpc_id" {
-  description   = "(Required) The ID of the VPC with which you are creating the VPC Peering Connection."
-  default       = null
+  description = "(Required) The ID of the VPC with which you are creating the VPC Peering Connection."
+  default     = null
 }
 
 variable "vpc_peering_connection_peer_owner_id" {
-  description   = "(Optional) The AWS account ID of the owner of the peer VPC. Defaults to the account ID the AWS provider is currently connected to."
-  default       = null
+  description = "(Optional) The AWS account ID of the owner of the peer VPC. Defaults to the account ID the AWS provider is currently connected to."
+  default     = null
 }
 
 variable "vpc_peering_connection_auto_accept" {
-  description   = "(Optional) Accept the peering (both VPCs need to be in the same AWS account)."
-  default       = null
+  description = "(Optional) Accept the peering (both VPCs need to be in the same AWS account)."
+  default     = null
 }
 
 variable "vpc_peering_connection_peer_region" {
-  description   = "(Optional) The region of the accepter VPC of the [VPC Peering Connection]. auto_accept must be false, and use the aws_vpc_peering_connection_accepter to manage the accepter side."
-  default       = null
+  description = "(Optional) The region of the accepter VPC of the [VPC Peering Connection]. auto_accept must be false, and use the aws_vpc_peering_connection_accepter to manage the accepter side."
+  default     = null
 }
 
-variable "accepter_allow_remote_vpc_dns_resolution" {
-  description   = "(Optional) Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC. This is not supported for inter-region VPC peering."
-  default       = true
+variable "vpc_peering_connection_accepter" {
+  description = "(Optional) - An optional configuration block that allows for [VPC Peering Connection] (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one)."
+  default     = []
 }
 
-variable "accepter_allow_classic_link_to_remote_vpc" {
-  description   = "(Optional) Allow a local linked EC2-Classic instance to communicate with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection to the remote VPC."
-  default       = null
+variable "vpc_peering_connection_requester" {
+  description = "(Optional) - A optional configuration block that allows for [VPC Peering Connection] (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one)."
+  default     = []
 }
 
-variable "accepter_allow_vpc_to_remote_classic_link" {
-  description   = "(Optional) Allow a local VPC to communicate with a linked EC2-Classic instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink connection."
-  default       = null
-}
-
-variable "requester_allow_remote_vpc_dns_resolution" {
-  description   = "(Optional) Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC. This is not supported for inter-region VPC peering."
-  default       = true
-}
-
-variable "requester_allow_classic_link_to_remote_vpc" {
-  description   = "(Optional) Allow a local linked EC2-Classic instance to communicate with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection to the remote VPC."
-  default       = null
-}
-
-variable "requester_allow_vpc_to_remote_classic_link" {
-  description   = "(Optional) Allow a local VPC to communicate with a linked EC2-Classic instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink connection."
-  default       = null
-}
-
-variable "vpc_peering_connection_timeouts_create" {
-  description   = "(Default 1 minute) Used for creating a peering connection"
-  default       = "1m"
-}
-
-variable "vpc_peering_connection_timeouts_update" {
-  description   = "(Default 1 minute) Used for peering connection modifications"
-  default       = "1m"
-}
-
-variable "vpc_peering_connection_timeouts_delete" {
-  description   = "(Default 1 minute) Used for destroying peering connections"
-  default       = "1m"
+variable "vpc_peering_connection_timeouts" {
+  description = "Set timeouts used for creating a peering connection"
+  default     = []
 }
 
 #---------------------------------------------------
 # AWS VPC peering connection options
 #---------------------------------------------------
 variable "enable_vpc_peering_connection_options" {
-  description   = "Enable VPC peering connection options usage"
-  default       = false
+  description = "Enable VPC peering connection options usage"
+  default     = false
 }
 
 variable "vpc_peering_connection_id" {
-  description   = "The ID of the requester VPC peering connection."
-  default       = ""
+  description = "The ID of the requester VPC peering connection."
+  default     = ""
 }
 
-variable "accepter_options_allow_remote_vpc_dns_resolution" {
-  description   = "(Optional) Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC."
-  default       = true
+variable "vpc_peering_connection_options_accepter" {
+  description = "(Optional) - An optional configuration block that allows for [VPC Peering Connection] (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one)."
+  default     = []
 }
 
-variable "accepter_options_allow_classic_link_to_remote_vpc" {
-  description   = "(Optional) Allow a local linked EC2-Classic instance to communicate with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection to the remote VPC. This option is not supported for inter-region VPC peering."
-  default       = null
-}
-
-variable "accepter_options_allow_vpc_to_remote_classic_link" {
-  description   = "(Optional) Allow a local VPC to communicate with a linked EC2-Classic instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink connection. This option is not supported for inter-region VPC peering."
-  default       = null
-}
-
-variable "requester_options_allow_remote_vpc_dns_resolution" {
-  description   = "(Optional) Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC."
-  default       = true
-}
-
-variable "requester_options_allow_classic_link_to_remote_vpc" {
-  description   = "(Optional) Allow a local linked EC2-Classic instance to communicate with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection to the remote VPC. This option is not supported for inter-region VPC peering."
-  default       = null
-}
-
-variable "requester_options_allow_vpc_to_remote_classic_link" {
-  description   = "(Optional) Allow a local VPC to communicate with a linked EC2-Classic instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink connection. This option is not supported for inter-region VPC peering."
-  default       = null
+variable "vpc_peering_connection_options_requester" {
+  description = "(Optional) - A optional configuration block that allows for [VPC Peering Connection] (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one)."
+  default     = []
 }
 
 #---------------------------------------------------
 # AWS VPC peering connection accepter
 #---------------------------------------------------
 variable "vpc_peering_connection_accepter_name" {
-  description   = "Set name for VPC peering connection accepter"
-  default       = ""
+  description = "Set name for VPC peering connection accepter"
+  default     = ""
 }
 
 variable "vpc_peering_connection_accepter_auto_accept" {
-  description   = "(Optional) Whether or not to accept the peering request. Defaults to false."
-  default       = false
+  description = "(Optional) Whether or not to accept the peering request. Defaults to false."
+  default     = false
 }
 
 #---------------------------------------------------
@@ -843,19 +873,9 @@ variable "vpc_endpoint_vpc_endpoint_type" {
   default     = "Gateway"
 }
 
-variable "vpc_endpoint_timeouts_create" {
-  description = "(Default 10 minutes) Used for creating a VPC endpoint"
-  default     = "10m"
-}
-
-variable "vpc_endpoint_timeouts_update" {
-  description = "(Default 10 minutes) Used for VPC endpoint modifications"
-  default     = "10m"
-}
-
-variable "vpc_endpoint_timeouts_delete" {
-  description = "(Default 10 minutes) Used for destroying VPC endpoints"
-  default     = "10m"
+variable "vpc_endpoint_timeouts" {
+  description = "Set timeouts used for creating a VPC endpoint"
+  default     = []
 }
 
 #---------------------------------------------------
@@ -871,14 +891,9 @@ variable "vpc_endpoint_id" {
   default     = ""
 }
 
-variable "vpc_endpoint_subnet_association_timeouts_create" {
-  description = "(Default 10 minutes) Used for creating the association"
-  default     = "10m"
-}
-
-variable "vpc_endpoint_subnet_association_timeouts_delete" {
-  description = "(Default 10 minutes) Used for destroying the association"
-  default     = "10m"
+variable "vpc_endpoint_subnet_association_timeouts" {
+  description = "Set timeouts used for creating the association"
+  default     = []
 }
 
 #---------------------------------------------------
